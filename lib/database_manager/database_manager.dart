@@ -5,7 +5,7 @@ class DatabaseManager {
       FirebaseFirestore.instance.collection('profileInfo');
 
   Future<void> createUserData(
-      String name, String product, int amount, String uid) async {
+      String name, String product, String amount, String uid) async {
     await profileList
         .doc(uid)
         .set({'name': name, 'amount': amount, 'product': product});
@@ -26,7 +26,7 @@ class DatabaseManager {
   }
 
   Future updateUserList(
-      String name, String product, int amount, String uid) async {
+      String name, String product, String amount, String uid) async {
     return await profileList
         .doc(uid)
         .update({'name': name, 'amount': amount, 'product': product});

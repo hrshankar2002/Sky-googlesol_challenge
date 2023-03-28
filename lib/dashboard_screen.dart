@@ -42,16 +42,95 @@ class _DashboardScreenState extends State<DashboardScreen> {
     userID = getUser!.uid;
   }
 
-  updateData(String name, String product, int amount, String userID) async {
+  updateData(String name, String product, String amount, String userID) async {
     await DatabaseManager().updateUserList(name, product, amount, userID);
     fetchDatabaseList();
+  }
+
+  alertbox(BuildContext context, index) {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Center(
+                child: Text(
+              userProfileList[index]['name'],
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            )),
+            content: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: Image.asset('')),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.add),
+                          label: Text('Add Img'),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          icon: Icon(Icons.delete),
+                          label: Text('Delete Img'),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        '🅻🅾🅲🅰🆃🅸🅾🅽: ${userProfileList[index]['product']}',
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                          '🅳🅴🆂🅲🆁🅸🅿🆃🅸🅾🅽: ${userProfileList[index]["amount"]}'),
+                    )
+                  ],
+                )
+              ],
+            ),
+          );
+        });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Title(color: Colors.deepPurple, child: Text('♉')),
+        title: Title(
+            color: Colors.deepPurple,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 105),
+              child: Text(
+                '🆆🅴🅻🅲🅾🅼🅴',
+                style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.grey),
+              ),
+            )),
         backgroundColor: Colors.deepPurple,
         automaticallyImplyLeading: false,
         actions: [
@@ -82,14 +161,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
           itemBuilder: (context, index) {
             return Card(
               child: ListTile(
-                title: Text(userProfileList[index]['name']),
-                subtitle: Text('Product: ${userProfileList[index]['product']}'),
+                onTap: () {
+                  alertbox(context, index);
+                },
+                title: Text('Contact Info: ${userProfileList[index]['name']}'),
+                //subtitle: Text('Address: ${userProfileList[index]['product']}'),
                 leading: CircleAvatar(
                   child: Image(
                     image: AssetImage('assets/images/img2.png'),
                   ),
                 ),
-                trailing: Text('Cost ₹: ${userProfileList[index]["amount"]}'),
               ),
             );
           },
@@ -110,21 +191,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
               children: [
                 TextField(
                   controller: _nameController,
-                  decoration: const InputDecoration(hintText: 'Name'),
+                  decoration: const InputDecoration(hintText: 'Contact Info'),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   controller: _productController,
-                  decoration: const InputDecoration(hintText: 'Product'),
+                  decoration: const InputDecoration(hintText: 'Location'),
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 TextField(
                   controller: _amountController,
-                  decoration: const InputDecoration(hintText: 'Amount'),
+                  decoration: const InputDecoration(hintText: 'Description'),
                 )
               ],
             ),
@@ -158,7 +239,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   submitAction(BuildContext context) {
     updateData(_nameController.text, _productController.text,
-        int.parse(_amountController.text), userID);
+        _amountController.text, userID);
     _nameController.clear();
     _amountController.clear();
     _productController.clear();

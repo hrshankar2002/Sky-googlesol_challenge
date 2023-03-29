@@ -30,9 +30,10 @@ class _MyAppState extends State<MyApp> {
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegistrationScreen(),
         '/dashboard': (context) => const DashboardScreen(),
-        '/resetpass': (context) => const ForgotPasswordScreen()
+        '/resetpass': (context) => const ForgotPasswordScreen(),
       },
       home: ScreenSplash(),
+      theme: ThemeData(primarySwatch: Colors.deepPurple),
       debugShowCheckedModeBanner: false,
     ));
   }

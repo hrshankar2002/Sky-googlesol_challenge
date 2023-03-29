@@ -12,11 +12,11 @@ class AuthenticationService {
           email: email, password: password);
       User user = result.user!;
       await DatabaseManager().createUserData(
-        name,
-        'Enter Product Here',
-        0,
-        user.uid,
-      );
+          name,
+          'Enter Location here',
+          'Enter Description here',
+          user.uid,
+          'https://firebasestorage.googleapis.com/v0/b/fir-proj-1-45b20.appspot.com/o/images%2Fimg1.jpeg?alt=media&token=a3357d81-769f-4d86-86ee-616aa939a555');
       return user;
     } catch (e) {}
   }

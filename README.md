@@ -16,5 +16,5 @@ The entire platform is simple to use and requires very less technical knowledge 
 
 ### Tech Used
 
-1. Flutter
-2. Firebase
+![](https://img.shields.io/badge/Flutter-02569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
+![](https://img.shields.io/badge/Firebase-FFCA28.svg?style=for-the-badge&logo=Firebase&logoColor=black)

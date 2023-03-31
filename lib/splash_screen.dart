@@ -34,7 +34,7 @@ class _ScreenSplashState extends State<ScreenSplash> {
   Widget build(BuildContext context) {
     return Stack(fit: StackFit.expand, children: [
       Image(
-        image: AssetImage('assets/images/img.png'),
+        image: AssetImage('assets/images/splash.png'),
         fit: BoxFit.cover,
       ),
       // other irrelevent children here

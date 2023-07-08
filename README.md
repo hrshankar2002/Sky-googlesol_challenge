@@ -1,20 +1,12 @@
 # Sky
 
-Sky is an online platform where you can post information about a place that you think requires help, or even <br>
-about a person or a situation and people who are willing to help can contribute to it
+Sky is an online community service provision platform to spread the awareness and concern in upliftment of the underprivileged sections of the society so as to promise them with a better tomorrow.
 
 ### Simple to Use 
 
-The entire platform is simple to use and requires very less technical knowledge to operate
+The entire platform is simple to use and requires very less technical knowledge to operate.
 
-#### Follow these steps to help others :
-1. Visit the location 
-2. Take a photo 
-3. Login to the app
-4. Upload the image and the details for contacting 
-5. Upload
-
-### Tech Used
+### Tech Stacks Used
 
 ![](https://img.shields.io/badge/Flutter-02569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![](https://img.shields.io/badge/Firebase-FFCA28.svg?style=for-the-badge&logo=Firebase&logoColor=black)
